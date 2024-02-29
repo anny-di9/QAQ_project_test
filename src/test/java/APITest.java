@@ -4,6 +4,7 @@ import io.restassured.http.Header;
 import io.restassured.http.Method;
 import io.restassured.internal.support.FileReader;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -25,8 +26,10 @@ public class APITest {
 
     @BeforeClass
     public void setup() {
+        RestAssured.useRelaxedHTTPSValidation();
         RestAssured.baseURI = "https://restful-booker.herokuapp.com";
         RestAssured.port = 443;
+
     }
 
     @Test
